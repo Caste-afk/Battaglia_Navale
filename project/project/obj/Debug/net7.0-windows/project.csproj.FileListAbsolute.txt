@@ -1,0 +1,17 @@
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\bin\Debug\net7.0-windows\project.exe
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\bin\Debug\net7.0-windows\project.deps.json
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\bin\Debug\net7.0-windows\project.runtimeconfig.json
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\bin\Debug\net7.0-windows\project.dll
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\bin\Debug\net7.0-windows\project.pdb
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.csproj.AssemblyReference.cache
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.Form1.resources
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.csproj.GenerateResource.cache
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.AssemblyInfoInputs.cache
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.AssemblyInfo.cs
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.csproj.CoreCompileInputs.cache
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.dll
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\refint\project.dll
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.pdb
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.genruntimeconfig.cache
+C:\Users\10933991\Desktop\C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\ref\project.dll
