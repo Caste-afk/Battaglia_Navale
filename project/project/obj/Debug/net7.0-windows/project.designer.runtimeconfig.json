@@ -12,11 +12,12 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\10933991\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\10933991\\.nuget\\packages",
+      "C:\\Users\\Eros\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Eros\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
+      "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
     }
   }

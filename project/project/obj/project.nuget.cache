@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Z0Ypek+iU0ZcHWPKAb26XfrCnIvgE2B/hvqTyGGV67bzDZKZT0goaFu9qvtRDr5bl/cGgZuaTsGCHN69nFUdhA==",
+  "dgSpecHash": "iGomd7LkdjI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\10933991\\Desktop\\C#\\Battaglia_Navale\\project\\project\\project.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Eros\\Desktop\\PROGRAMMAZIONE\\progetti_C#\\Battaglia_Navale\\project\\project\\project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Eros\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Eros\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Eros\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Eros\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
