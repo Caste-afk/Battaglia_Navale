@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{0EF7F446-FD7A-4DF3-BC07-27D36B866734}|project\\project.csproj|solutionrelative:project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EF7F446-FD7A-4DF3-BC07-27D36B866734}|project\\project.csproj|c:\\users\\eros\\desktop\\programmazione\\progetti_c#\\battaglia_navale\\project\\project\\cnave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EF7F446-FD7A-4DF3-BC07-27D36B866734}|project\\project.csproj|solutionrelative:project\\cnave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0EF7F446-FD7A-4DF3-BC07-27D36B866734}|project\\project.csproj|C:\\Users\\Eros\\Desktop\\PROGRAMMAZIONE\\progetti_C#\\Battaglia_Navale\\project\\project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0EF7F446-FD7A-4DF3-BC07-27D36B866734}|project\\project.csproj|solutionrelative:project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF7F446-FD7A-4DF3-BC07-27D36B866734}|project\\project.csproj|c:\\users\\eros\\desktop\\programmazione\\progetti_c#\\battaglia_navale\\project\\project\\cnave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EF7F446-FD7A-4DF3-BC07-27D36B866734}|project\\project.csproj|solutionrelative:project\\cnave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "project\\Form1.cs",
               "ToolTip": "C:\\Users\\Eros\\Desktop\\PROGRAMMAZIONE\\progetti_C#\\Battaglia_Navale\\project\\project\\Form1.cs",
               "RelativeToolTip": "project\\Form1.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAUwGIAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAcwJwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T14:10:04.851Z",
               "IsPinned": true,
@@ -44,7 +44,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CNave.cs",
               "DocumentMoniker": "C:\\Users\\Eros\\Desktop\\PROGRAMMAZIONE\\progetti_C#\\Battaglia_Navale\\project\\project\\CNave.cs",
               "RelativeDocumentMoniker": "project\\CNave.cs",
@@ -52,12 +52,11 @@
               "RelativeToolTip": "project\\CNave.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAABgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T16:14:48.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T16:14:48.304Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Progettazione]",
               "DocumentMoniker": "C:\\Users\\Eros\\Desktop\\PROGRAMMAZIONE\\progetti_C#\\Battaglia_Navale\\project\\project\\Form1.cs",
               "RelativeDocumentMoniker": "project\\Form1.cs",

@@ -1,3 +1,4 @@
+using System;
 using System.Configuration;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
@@ -44,9 +45,16 @@ namespace project
 
         private void dgv_Campo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgv_Campo.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            int yprem = e.RowIndex;
+            int xprem = dgv_Campo.Columns[e.ColumnIndex].Index;
+            if (dgv_Campo.Rows[yprem].Cells[xprem].Value?.ToString() == "0")
             {
-                MessageBox.Show($"Pulsante cliccato nella riga {e.RowIndex}, {dgv_Campo.Columns[e.ColumnIndex].Index}");
+                MessageBox.Show("Hai mancato!");
+            }
+            else
+            {
+                MessageBox.Show("Hai preso!");
+                dgv_Campo.Rows[yprem].Cells[xprem].Value = 2;
             }
         }
 
@@ -64,43 +72,29 @@ namespace project
 
             List<CNave> navi = new List<CNave> { Portaerei, Corazzata, Incrociatore, Sommergibile, Cacciatorpediniere[0], Cacciatorpediniere[1], Sottomarini[0], Sottomarini[1], Sottomarini[2], Sottomarini[3]};
 
-            for(int i =0; i< navi.Count; i++)
+            for (int i =0; i< navi.Count; i++)
             {
                 bool piazzato = false;
-                int tentativiMassimi = 100;  // Massimo 100 tentativi per nave
-                int tentativi = 0;
 
-                while (!piazzato && tentativi < tentativiMassimi)
+                while (!piazzato)
                 {
-                    tentativi++;  // Incrementa il contatore
                     int x = rnd.Next(0, 10);
                     int y = rnd.Next(0, 10);
                     piazzato = ControlloPiazzamenti(x, y, navi[i]);
-
-                    if (tentativi >= tentativiMassimi)
-                    {
-                        MessageBox.Show("Impossibile piazzare la nave " + i);
-                        break;  // Esce dal ciclo while
-                    }
                 }
 
-                if (navi[i].xi >= navi[i].xf)
+                for (int j = navi[i].xi; j <= navi[i].xf; j++)
                 {
-                    for(int j = navi[i].xi; j >= navi[i].xf; j--)
-                    {
-                        dgv_Campo.Rows[navi[i].yi].Cells[j].Value = "1";
-                        dgv_Campo.Rows[navi[i].yi].Cells[j].Style.BackColor = Color.Green;
-                    }
-                }
-                else
-                {
-                    for (int j = navi[i].xi; j <= navi[i].xf; j++)
+                    if (j < dgv_Campo.ColumnCount)
                     {
                         dgv_Campo.Rows[navi[i].yi].Cells[j].Style.BackColor = Color.Green;
                         dgv_Campo.Rows[navi[i].yi].Cells[j].Value = 1;
                     }
+                    else
+                    {
+                        MessageBox.Show($"ControlloOrizzontale: xi={navi[i].xi}, xf={navi[i].xf}, y={navi[i].yi}, verso={navi[i].verso}, dim={navi[i].dimensione}, colonne tot{dgv_Campo.ColumnCount}"); ;
+                    }
                 }
-                
             }
         }
 
@@ -110,10 +104,12 @@ namespace project
             if (dgv_Campo.Rows[y].Cells[x].Value?.ToString() != "0")
                 return false;
 
+            bool verso = true;
             // Prova prima a destra, poi a sinistra
             bool piazzato = ControlloOrizzontale(x, y, nave, true);
             if (!piazzato)
                 piazzato = ControlloOrizzontale(x, y, nave, false);
+
 
             if (piazzato)
             {
@@ -139,21 +135,28 @@ namespace project
             else // Sinistra
             {
                 if (x - dimensioneNave < 0)
+                {
                     return false;
+                }
             }
-
+            nave.verso = verso;
             // Controlla se tutte le celle sono libere
             for (int i = 0; i < dimensioneNave; i++)
             {
-                int cellX = verso ? x + i : x - i;
-                int cellY = y;
+                int cellx = verso ? x + i : x - i;
 
-                if (dgv_Campo.Rows[cellY].Cells[cellX].Value?.ToString() != "0")
+                if (dgv_Campo.Rows[y].Cells[cellx].Value.ToString() != "0")
                     return false;
             }
 
             return true;
         }
+
+        private void ControlloPresaNave()
+        {
+
+        }
+
 
     }
 }
