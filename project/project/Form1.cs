@@ -1,13 +1,17 @@
-using System;
+﻿using System;
 using System.Configuration;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
 
+
+//PER NASCONDERE INFORMAZIONI BISOGNA MODIFICARE L'ATTRIBUTO TAG NON VALUE!!!!!!!!!!!😎😎😎😎😎😎😎😎😎😎
+
 namespace project
 {
     public partial class Form1 : Form
     {
+        List<CNave> navi;
         public Form1()
         {
             InitializeComponent();
@@ -38,23 +42,7 @@ namespace project
                         dgv_Campo.Rows[r].Cells[c].Value = 0;
                     }
                 }
-
                 index++;
-            }
-        }
-
-        private void dgv_Campo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int yprem = e.RowIndex;
-            int xprem = dgv_Campo.Columns[e.ColumnIndex].Index;
-            if (dgv_Campo.Rows[yprem].Cells[xprem].Value?.ToString() == "0")
-            {
-                MessageBox.Show("Hai mancato!");
-            }
-            else
-            {
-                MessageBox.Show("Hai preso!");
-                dgv_Campo.Rows[yprem].Cells[xprem].Value = 2;
             }
         }
 
@@ -63,100 +51,56 @@ namespace project
         {
             Random rnd = new Random();
 
-            CNave Portaerei = new CNave(5, 0, 0, 0, 0, true);
-            CNave Corazzata = new CNave(4, 0, 0, 0, 0, true);
-            CNave Incrociatore = new CNave(3, 0, 0, 0, 0, true);
-            CNave Sommergibile = new CNave(3, 0, 0, 0, 0, true);
-            CNave[] Cacciatorpediniere = { new CNave(2, 0, 0, 0, 0, true), new CNave(2, 0, 0, 0, 0, true) };
-            CNave[] Sottomarini = { new CNave(1, 0, 0, 0, 0, true), new CNave(1, 0, 0, 0, 0, true), new CNave(1, 0, 0, 0, 0, true), new CNave(1, 0, 0, 0, 0, true) };
+            CNave Portaerei = new CNave(5, "Portaerei");
+            CNave Corazzata = new CNave(4, "Corazzata");
+            CNave Incrociatore = new CNave(3, "Incrociatore");
+            CNave Sommergibile = new CNave(3, "Sommergibile");
+            CNave[] Cacciatorpediniere = { new CNave(2, "Cacciatorpediniere1"), new CNave(2, "Cacciatorpediniere2") };
+            CNave[] Sottomarini = { new CNave(1, "Sottomarini1"), new CNave(1, "Sottomarini2"), new CNave(1, "Sottomarini3"), new CNave(1, "Sottomarini4") };
 
-            List<CNave> navi = new List<CNave> { Portaerei, Corazzata, Incrociatore, Sommergibile, Cacciatorpediniere[0], Cacciatorpediniere[1], Sottomarini[0], Sottomarini[1], Sottomarini[2], Sottomarini[3]};
+            navi = new List<CNave> { Portaerei, Corazzata, Incrociatore, Sommergibile, Cacciatorpediniere[0], Cacciatorpediniere[1], Sottomarini[0], Sottomarini[1], Sottomarini[2], Sottomarini[3]};
 
-            for (int i =0; i< navi.Count; i++)
+            foreach(var nave in navi)
             {
-                bool piazzato = false;
-
-                while (!piazzato)
-                {
-                    int x = rnd.Next(0, 10);
-                    int y = rnd.Next(0, 10);
-                    piazzato = ControlloPiazzamenti(x, y, navi[i]);
-                }
-
-                for (int j = navi[i].xi; j <= navi[i].xf; j++)
-                {
-                    if (j < dgv_Campo.ColumnCount)
-                    {
-                        dgv_Campo.Rows[navi[i].yi].Cells[j].Style.BackColor = Color.Green;
-                        dgv_Campo.Rows[navi[i].yi].Cells[j].Value = 1;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"ControlloOrizzontale: xi={navi[i].xi}, xf={navi[i].xf}, y={navi[i].yi}, verso={navi[i].verso}, dim={navi[i].dimensione}, colonne tot{dgv_Campo.ColumnCount}"); ;
-                    }
-                }
+                nave.ProvaPiazzamento(dgv_Campo);
             }
+
         }
 
-        private bool ControlloPiazzamenti(int x, int y, CNave nave)
+        private void dgv_Campo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Controlla se la cella iniziale � libera
-            if (dgv_Campo.Rows[y].Cells[x].Value?.ToString() != "0")
-                return false;
-
-            bool verso = true;
-            // Prova prima a destra, poi a sinistra
-            bool piazzato = ControlloOrizzontale(x, y, nave, true);
-            if (!piazzato)
-                piazzato = ControlloOrizzontale(x, y, nave, false);
-
-
-            if (piazzato)
+            int yprem = e.RowIndex;
+            int xprem = dgv_Campo.Columns[e.ColumnIndex].Index;
+            if (dgv_Campo.Rows[yprem].Cells[xprem].Value?.ToString() == "0")
             {
-                nave.xi = x;
-                nave.yi = nave.yf = y;
-                nave.xf = nave.verso ? x + nave.dimensione - 1 : x - nave.dimensione + 1;
+                MessageBox.Show($"Hai mancato! x = {xprem}; y= {yprem}");
             }
-
-            return piazzato;
-        }
-
-        private bool ControlloOrizzontale(int x, int y, CNave nave, bool verso)
-        {
-            int dimensioneNave = nave.dimensione;
-            int colonneTotali = dgv_Campo.ColumnCount;
-
-            // Controlla se la nave esce dai bordi
-            if (verso) // Destra
+            else
             {
-                if (x + dimensioneNave > colonneTotali)
-                    return false;
-            }
-            else // Sinistra
-            {
-                if (x - dimensioneNave < 0)
+                MessageBox.Show("Hai preso!");
+                if(!ControlloNaveAffondata(xprem, yprem))
                 {
-                    return false;
+                    dgv_Campo.Rows[yprem].Cells[xprem].Value = 2;
                 }
             }
-            nave.verso = verso;
-            // Controlla se tutte le celle sono libere
-            for (int i = 0; i < dimensioneNave; i++)
-            {
-                int cellx = verso ? x + i : x - i;
-
-                if (dgv_Campo.Rows[y].Cells[cellx].Value.ToString() != "0")
-                    return false;
-            }
-
-            return true;
         }
 
-        private void ControlloPresaNave()
+        private bool ControlloNaveAffondata(int xprem, int yprem)
         {
-
+            string[] val = dgv_Campo.Rows[yprem].Cells[xprem].Value.ToString().Split(",");
+            
+            foreach(var nave in navi)
+            {
+                if(nave.nome == val[1])
+                {
+                    nave.colpi++;
+                    nave.Affondata(dgv_Campo, xprem, yprem);
+                    MessageBox.Show($"{nave.colpi}");
+                    return true;
+                }
+            }
+            return false;
         }
-
 
     }
 }
