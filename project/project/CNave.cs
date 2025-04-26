@@ -11,8 +11,10 @@ namespace project
     class CNave
     {
         public int dimensione { get; set; }
-        public int colpi { get; set; }
+        public int colpi { get; set; } = 1;
         public string nome { get; set; }
+        public int xi { set;  get; }
+        public int yi { set;  get; }
         private bool verso;       //orizzontale/verticale
         
 
@@ -33,8 +35,9 @@ namespace project
                 y = rnd.Next(0, 10);
 
             }while (!ControlloVerso(x, y, dgv_campo)) ;
-
-            OccupaCelle(dgv_campo, x, y);
+            xi = x;
+            yi = y;
+            OccupaCelle(dgv_campo, x, y, $"1,{nome}", Color.Green);
         }
 
         private bool ControlloVerso(int x, int y, DataGridView dgv_campo)
@@ -71,7 +74,7 @@ namespace project
                 int cellX = ver ? i : k;
                 int cellY = ver ? k : i;
 
-                string[] val = dgv_campo.Rows[cellY].Cells[cellX].Value?.ToString().Split(",");
+                string[] val = dgv_campo.Rows[cellY].Cells[cellX].Tag?.ToString().Split(",");
 
                 if (val[0] == "1")
                 {
@@ -80,27 +83,30 @@ namespace project
             }
             return true;
         }
-        private void OccupaCelle(DataGridView dgv_campo, int x, int y)
+        public void OccupaCelle(DataGridView dgv_campo, int x, int y, string testo, Color colore)
         {
             for (int i = 0; i < dimensione; i++)
             {
                 int cx = verso ? x + i : x;
                 int cy = verso ? y : y + i;
-                dgv_campo.Rows[cy].Cells[cx].Value = $"1,{nome}";
-                dgv_campo.Rows[cy].Cells[cx].Style.BackColor = Color.Green;
+
+                if (cy >= 0 && cy < dgv_campo.Rows.Count && cx >= 0 && cx < dgv_campo.Columns.Count)
+                {
+                    dgv_campo.Rows[cy].Cells[cx].Tag = testo;
+                    dgv_campo.Rows[cy].Cells[cx].Style.BackColor = colore;
+                }
+
             }
         }
 
-        public void Affondata(DataGridView dgv_campo, int x, int y)
+        public void Colpita(DataGridView dgv_campo, int x, int y)
         {
-            if (colpi == dimensione)
-            {
-                for (int i = 0; i < dimensione; i++)
-                {
-                    dgv_campo.Rows[y].Cells[x].Value = $"AFFONDATA!!";
-                    dgv_campo.Rows[y].Cells[x].Style.BackColor = Color.Red;
-                }
-            }
+            colpi++;
+            dgv_campo.Rows[y].Cells[x].Style.BackColor = Color.Yellow;
+            dgv_campo.Rows[y].Cells[x].Style.BackColor = Color.Yellow;
         }
+
+
+        
     }
 }
