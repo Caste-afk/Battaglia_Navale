@@ -32,3 +32,7 @@ C:\Users\Eros\Desktop\PROGRAMMAZIONE\progetti_C#\Battaglia_Navale\project\projec
 C:\Users\Eros\Desktop\PROGRAMMAZIONE\progetti_C#\Battaglia_Navale\project\project\bin\Debug\net7.0-windows\project.pdb
 C:\Users\Eros\Desktop\PROGRAMMAZIONE\progetti_C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.genruntimeconfig.cache
 C:\Users\Eros\Desktop\PROGRAMMAZIONE\progetti_C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\ref\project.dll
+C:\Users\Eros\Desktop\PROGRAMMAZIONE\progetti_C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.Fine.resources
+C:\Users\Eros\Desktop\PROGRAMMAZIONE\progetti_C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.Properties.Resources.resources
+C:\Users\Eros\Desktop\PROGRAMMAZIONE\progetti_C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\Interop.WMPLib.dll
+C:\Users\Eros\Desktop\PROGRAMMAZIONE\progetti_C#\Battaglia_Navale\project\project\obj\Debug\net7.0-windows\project.csproj.ResolveComReference.cache

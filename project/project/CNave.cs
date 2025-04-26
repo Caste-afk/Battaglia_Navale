@@ -15,7 +15,7 @@ namespace project
         public string nome { get; set; }
         public int xi { set;  get; }
         public int yi { set;  get; }
-        private bool verso;       //orizzontale/verticale
+        public bool verso { get; set; }      //orizzontale/verticale
         
 
         public CNave(int dimensione, string nome)
@@ -37,7 +37,7 @@ namespace project
             }while (!ControlloVerso(x, y, dgv_campo)) ;
             xi = x;
             yi = y;
-            OccupaCelle(dgv_campo, x, y, $"1,{nome}", Color.Green);
+            OccupaCelle(dgv_campo, x, y, $"1,{nome}");
         }
 
         private bool ControlloVerso(int x, int y, DataGridView dgv_campo)
@@ -83,7 +83,8 @@ namespace project
             }
             return true;
         }
-        public void OccupaCelle(DataGridView dgv_campo, int x, int y, string testo, Color colore)
+
+        public void OccupaCelle(DataGridView dgv_campo, int x, int y, string testo)
         {
             for (int i = 0; i < dimensione; i++)
             {
@@ -93,20 +94,10 @@ namespace project
                 if (cy >= 0 && cy < dgv_campo.Rows.Count && cx >= 0 && cx < dgv_campo.Columns.Count)
                 {
                     dgv_campo.Rows[cy].Cells[cx].Tag = testo;
-                    dgv_campo.Rows[cy].Cells[cx].Style.BackColor = colore;
                 }
 
             }
         }
-
-        public void Colpita(DataGridView dgv_campo, int x, int y)
-        {
-            colpi++;
-            dgv_campo.Rows[y].Cells[x].Style.BackColor = Color.Yellow;
-            dgv_campo.Rows[y].Cells[x].Style.BackColor = Color.Yellow;
-        }
-
-
-        
+                
     }
 }
